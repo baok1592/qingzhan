@@ -13,13 +13,10 @@ PC演示：[https://qz1.ruhuashop.com/](https://qz1.ruhuashop.com/)
 后台演示：
 [https://qz1.ruhuashop.com/qzcms/](https://qz1.ruhuashop.com/qzcms/)
 
-手机演示：
 
-[https://qz1.ruhuashop.com/h6/](https://qz1.ruhuashop.com/h6/)
-
-[https://qz1.ruhuashop.com/h7/](https://qz1.ruhuashop.com/h7/)
-
-[https://qz1.ruhuashop.com/h8/](https://qz1.ruhuashop.com/h8/)
-
-小程序演示 - 搜索：轻松自助建站系统
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/baok1592/qingzhan/main/public/assets/show1.jpg">
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/baok1592/qingzhan/main/public/assets/show2.jpg">
+</p>
