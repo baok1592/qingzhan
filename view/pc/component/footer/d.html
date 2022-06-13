@@ -1,0 +1,34 @@
+<!-- ========== FOOTER ========== -->
+<footer class="container content-space-2 text-center">
+
+    <a class="d-inline-flex align-items-center mb-2" aria-label="Front">
+        <img class="brand" src="/{$company['logo']}" alt="Logo" />
+    </a>
+    <p class="fs-6 mb-1">
+        {notempty name="company.home_cpy"}
+        {$company.home_cpy} &emsp;
+        {/notempty}
+
+        {notempty name="company.cpy_address"}
+        {$company.cpy_address}
+        {/notempty}
+
+    <p class="fs-6">
+
+        {notempty name="company.tel"}
+        {$company.tel} &emsp;
+        {/notempty}
+
+        {notempty name="company.email"}
+        {$company.email} &emsp;
+        {/notempty}
+
+        {notempty name="company.beian"}
+            <a class="link" href="#">{$company.beian}</a></p>
+        {/notempty}
+    </p>
+    <a href="https://qz.ruhuashop.com/" target="_blank">
+        <div class="text-center fs-6 text-black-50">本网站由 轻松自动建站系统 搭建</div>
+    </a>
+
+</footer>

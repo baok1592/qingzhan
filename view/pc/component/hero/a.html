@@ -1,0 +1,52 @@
+{notempty name="data['list']"}
+<div class="position-relative bg-primary overflow-hidden">
+
+    <div class="container position-relative zi-2 content-space-3 content-space-md-5">
+        <div class="js-swiper-gallery-2 swiper">
+            <div class="swiper-wrapper">
+        {foreach $data['list'] as $k=>$v }
+        <div class="swiper-slide text-center w-100">
+            <div class="mb-7 px-10 mx-10">
+                {notempty name="v['jump_class']"}
+                    <a href="{$web_url}{$v['jump_class']}/{$v['jump_id']}">
+                {/notempty}
+                <h1 class="display-4 text-white mb-4">
+                    {$v['one']}</h1>
+                <p class="lead text-white mb-4">
+                    {$v['two']}
+                </p>
+                {notempty name="v['jump_type']"}
+                    </a>
+                {/notempty}
+            </div>
+        </div>
+        {/foreach}
+            </div>
+        </div>
+    </div>
+
+    <div class="shape shape-bottom zi-1" style="margin-bottom: -.125rem">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
+            <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+        </svg>
+    </div>
+</div>
+
+{notempty name="data['list'][1]"}
+    <script>
+        (function() {
+            var swiper = new Swiper('.js-swiper-gallery-2',{
+                autoplay: true,
+                loop: true,
+                slidesPerView: 1,
+                pagination: {
+                    el: '.js-swiper-gallery-2-pagination',
+                    dynamicBullets: true,
+                    clickable: true,
+                },
+            });
+        })()
+    </script>
+{/notempty}
+
+{/notempty}

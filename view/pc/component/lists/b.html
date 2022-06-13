@@ -1,0 +1,33 @@
+{notempty name="data['list']"}
+<div class="container my-5">
+    {notempty name="data['list']"}
+    <div class="row mb-5 ">
+        {foreach $data['list'] as $k=>$v }
+            <div class="col-sm-6 col-md-4 mb-3 mb-sm-7">
+            <div class="d-flex align-items-center mb-2">
+                    <div class="flex-shrink-0">
+                        <span class="svg-icon svg-icon-sm text-primary">
+                <a href="{$web_url}detail?cid={$v.category_id}&id={$v.id}">
+                         <img
+                                 style="width:60px;height:60px;border-radius: 10px;"
+                                 src="{$v.url}"
+                                 alt="{$v.title}"
+                         />
+                </a>
+                        </span>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <a href="{$web_url}detail?cid={$v.category_id}&id={$v.id}">
+                        <h4 class="mb-0">{$v.title}</h4>
+                        </a>
+                    </div>
+            </div>
+            <p>
+                {$v.desc}
+            </p>
+        </div>
+        {/foreach}
+    </div>
+    {/notempty}
+</div>
+{/notempty}

@@ -1,0 +1,43 @@
+{notempty name="data['list']"}
+<div class="container content-space-2 content-space-b-lg-3">
+  <div class="w-lg-75 mx-lg-auto">
+    <div class="d-grid gap-10">
+      <div class="d-grid gap-3">
+        <h2>{$data['list']['title']}</h2>
+        <div
+          class="accordion accordion-flush accordion-lg"
+          id="accordionFAQBasics"
+        >
+            {notempty name="data['list']['json']"}
+            {foreach $data['list']['json'] as $k=>$v }
+          <div class="accordion-item">
+            <div class="accordion-header" id="headingBasicsOne">
+              <a
+                class="accordion-button collapsed"
+                role="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#x{$k}"
+                aria-expanded="true"
+                aria-controls="collapseBasicsOne"
+              >
+                  {$v['ask']}
+              </a>
+            </div>
+            <div
+              id="x{$k}"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingBasicsOne"
+              data-bs-parent="#accordionFAQBasics"
+            >
+              <div class="accordion-body"> {$v['answer']}</div>
+            </div>
+          </div>
+
+            {/foreach}
+            {/notempty}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{/notempty}

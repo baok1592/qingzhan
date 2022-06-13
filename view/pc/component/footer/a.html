@@ -1,0 +1,80 @@
+<footer>
+    <div class="container pb-1 pb-lg-7">
+        <div class="row content-space-t-2">
+            <div class="col-12 col-lg-3 mb-7 mb-lg-0">
+                <!-- Logo -->
+                <div class="mb-5">
+                    <a class="navbar-brand" aria-label="Space">
+                        <img
+                                class="navbar-brand-logo"
+                                src="/{$company['logo']}"
+                                alt="Image Description"
+                        />
+                    </a>
+                </div>
+                <!-- End Logo -->
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1">
+                    <li>
+                        <a class="link-sm link-secondary">
+                            <i class="bi-geo-alt-fill me-1"></i>
+                            {notempty name="company.cpy_address"}
+                                {$company.cpy_address}
+                            {/notempty}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-secondary" href="tel:1-062-109-9222"
+                        ><i class="bi-telephone-inbound-fill me-1"></i>
+                            {notempty name="company.tel"}
+                            {$company.tel}
+                            {/notempty}
+                        </a
+                        >
+                    </li>
+                </ul>
+            </div>
+
+            {notempty name="navs"}
+                {foreach $navs as $k=>$v}
+            {if $k>0 && $k<6}
+                <div class="col-6 col-sm mb-7 mb-sm-0">
+                    <h5 class="mb-3">{$v.name}</h5>
+                    <ul class="list-unstyled list-py-1 mb-0">
+                        {foreach $v['child'] as $c}
+                        <li><a class="link-sm link-secondary" href="{$web_url}{$c.url}">{$c.name}</a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+            {/if}
+                {/foreach}
+            {/notempty}
+
+        </div>
+
+        <div class="border-top my-7"></div>
+
+
+        <!-- Copyright -->
+        <div class="w-md-85 text-lg-center mx-lg-auto">
+            <p class="text-muted small">
+                {notempty name="company.home_cpy"}
+                    {$company.home_cpy} &emsp;
+                {/notempty}
+
+                {notempty name="company.email"}
+                    邮箱：{$company.email}&emsp;
+                {/notempty}
+
+                {notempty name="company.beian"}
+                    备案号：<a class="link" href="#">{$company.beian}</a></p>
+                {/notempty}
+            </p>
+        </div>
+        <a href="https://qz.ruhuashop.com/" target="_blank">
+            <div class="text-center fs-6 text-black-50">本网站由 轻松自动建站系统 搭建</div>
+        </a>
+    </div>
+
+</footer>

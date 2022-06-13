@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>-</title>
+    <meta name="keywords" content="-">
+    <meta name="description" content="-">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/aos.css">
+    <link rel="stylesheet" href="/assets/css/theme.min.css">
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+<div class="container mt-5">
+    <div class="w-lg-85 mx-lg-auto fs-5">
+        <div class="card card-lg mb-5">
+            <div class="card-body">
+
+        <form action="start" method="post">
+            <div class="mb-5 fs-5">
+                <h4 class="my-7">数据库配置</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">数据库地址</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="HOST" class="form-control form-control-lg"
+                                      value="localhost">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">数据库端口</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="PORT"  class="form-control form-control-lg"
+                                       value="3306" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">表前缀</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="PREFIX"  class="form-control form-control-lg"
+                                       placeholder="如：a_" value="news_">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">数据库名</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="NAME" class="form-control form-control-lg"
+                                       placeholder="如：qz">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">数据库用户名</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="USER" class="form-control form-control-lg"
+                                       placeholder="如：root">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">数据库密码</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="PWD" class="form-control form-control-lg fs-6"
+                                       placeholder="不建议空密码" >
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <h4 class="my-7">设置管理员</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">用户名</label>
+
+                            <div class="input-group input-group-merge">
+                                <input type="text" name="username" class="form-control form-control-lg"
+                                       placeholder="如：admin">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">密 码</label>
+                            <div class="input-group input-group-merge">
+                                <input type="password" name="password" class="form-control form-control-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="mb-4">
+                            <label class="form-label">确认密码</label>
+                            <div class="input-group input-group-merge">
+                                <input type="password" name="password_confirm" class="form-control form-control-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-white mx-5" href="{:url('install/step2')}">
+                    上一步
+                </a>
+
+                <button type="submit" class="btn btn-primary" >
+                    确 定
+                </button>
+            </div>
+        </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+{notempty name="data['list']"}
+<div class="position-relative">
+    <!-- Swiper Main Slider -->
+    <div class="js-swiper-shop-classic-hero swiper bg-light">
+        <div class="swiper-wrapper">
+            {foreach $data['list'] as $k=>$v }
+            <div class="swiper-slide">
+                <!-- Container -->
+                <div class="container content-space-t-2 content-space-b-3">
+                    <div class="row align-items-lg-center">
+                        <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
+                            {notempty name="v['jump_class']"}
+                            <a href="{$web_url}{$v['jump_class']}/{$v['jump_id']}">
+                                {/notempty}
+                            <div class="mb-6">
+                                <h1 class="display-4 mb-4">{$v['one']}</h1>
+                                <p>{$v['one']}</p>
+                            </div>
+                                {notempty name="v['jump_type']"}
+                            </a>
+                            {/notempty}
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="w-75 mx-auto">
+                                <img class="img-fluid" src="{$v['url']}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+
+        </div>
+
+    </div>
+    <!-- End Swiper Main Slider -->
+
+    <!-- Swiper Thumbs Slider -->
+    <div class="position-absolute bottom-0 start-0 end-0 mb-3">
+        <div class="js-swiper-shop-hero-thumbs swiper" style="max-width: 13rem;">
+            <div class="swiper-wrapper">
+                {foreach $data['list'] as $k=>$v }
+                <div class="swiper-slide">
+                    <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
+                        <img class="swiper-thumb-progress-avatar-img" src="{$v['url']}">
+                    </a>
+                </div>
+                {/foreach}
+
+            </div>
+        </div>
+    </div>
+</div>
+{/notempty}
+
+
+`
+<style type="text/css">
+    .swiper-notification{
+        display: none;
+    }
+</style>
+<script>
+    (function() {
+        // INITIALIZATION OF SWIPER
+        // =======================================================
+        var sliderThumbs = new Swiper('.js-swiper-shop-hero-thumbs', {
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            history: false,
+            slidesPerView: 3,
+            spaceBetween: 15,
+            on: {
+                beforeInit: (swiper) => {
+                    const css = `.swiper-slide-thumb-active .swiper-thumb-progress .swiper-thumb-progress-path {
+                opacity: 1;
+                -webkit-animation: ${swiper.originalParams.autoplay.delay}ms linear 0ms forwards swiperThumbProgressDash;
+                animation: ${swiper.originalParams.autoplay.delay}ms linear 0ms forwards swiperThumbProgressDash;
+            }`
+                    style = document.createElement('style')
+                    document.head.appendChild(style)
+                    style.type = 'text/css'
+                    style.appendChild(document.createTextNode(css));
+
+                    swiper.el.querySelectorAll('.js-swiper-thumb-progress')
+                        .forEach(slide => {
+                            slide.insertAdjacentHTML('beforeend', '<span class="swiper-thumb-progress"><svg version="1.1" viewBox="0 0 160 160">' +
+                                '<path class="swiper-thumb-progress-path" d="M 79.98452083651917 4.000001576345426 A 76 76 0 1 1 79.89443752470656 4.0000733121155605 Z"></path></svg></span>')
+                        })
+                },
+            },
+        });
+
+        var swiper = new Swiper('.js-swiper-shop-classic-hero',{
+            autoplay: true,
+            loop: true,
+            navigation: {
+                nextEl: '.js-swiper-shop-classic-hero-button-next',
+                prevEl: '.js-swiper-shop-classic-hero-button-prev',
+            },
+            thumbs: {
+                swiper: sliderThumbs
+            }
+        });
+    })()
+</script>

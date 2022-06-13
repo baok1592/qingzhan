@@ -1,0 +1,97 @@
+<!-- ========== HEADER ========== -->
+{notempty name="nav_json['radios'][1]"}
+    <header class="navbar navbar-expand-lg {$nav_json['radios'][1]=='left'?'navbar-light':'navbar-end'}  bg-white">
+{else/}
+    <header class="navbar navbar-expand-lg navbar-end bg-white">
+{/notempty}
+
+
+    <div class="container">
+        <nav class="js-mega-menu navbar-nav-wrap">
+            <!-- Default Logo -->
+            <a class="navbar-brand d-inline-flex" href="/" aria-label="Front">
+                <h1 class="text-primary pt-2 mx-2">{$site.site_name}</h1>
+            </a>
+            <!-- End Default Logo -->
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-default">
+          <i class="bi-list"></i>
+        </span>
+                <span class="navbar-toggler-toggled">
+          <i class="bi-x"></i>
+        </span>
+            </button>
+            <!-- End Toggler -->
+
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    {notempty name="navs"}
+                    {foreach $navs as $v}
+                    {notempty name="v['child'][0]"}
+                    <li class="hs-has-sub-menu nav-item">
+                        <a id="companyMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle"
+                           {$v.active==1?'active':''}"  href="#"
+                           role="button"  aria-expanded="false">{$v.name}</a>
+                        <div class="hs-sub-menu dropdown-menu" aria-labelledby="companyMegaMenu" style="min-width: 14rem;">
+                            {foreach $v['child'] as $c}
+
+                            {notempty name="c['jump_url']"}
+                            <a class="dropdown-item"
+                               href="{$c.jump_url}" target="_blank">{$c.name}</a>
+                            {else/}
+                            <a class="dropdown-item" href="{$web_url}{$c.url}">{$c.name}</a>
+                            {/notempty}
+
+                            {/foreach}
+                        </div>
+                    </li>
+
+                    {else/}
+                    <li class="nav-item">
+                        {notempty name="v['jump_url']"}
+                        <a class="hs-mega-menu-invoker nav-link {$v.url==$path?'active':''}"
+                           href="{$v.jump_url}" target="_blank" role="button">{$v.name}</a>
+                        {else/}
+                        <a class="hs-mega-menu-invoker nav-link {$v.url==$path?'active':''}"
+                           href="{$web_url}{$v.url}" role="button">{$v.name}</a>
+                        {/notempty}
+                    </li>
+                    {/notempty}
+                    {/foreach}
+                    {/notempty}
+                </ul>
+            </div>
+            <!-- End Collapse -->
+        </nav>
+    </div>
+</header>
+<!-- ========== END HEADER ========== -->
+
+<script src="/assets/js/hs-mega-menu.min.js"></script>
+{notempty name="nav_json['radios']"}
+{if $nav_json['radios'][0]=='click'}
+    <script>
+        (function() {
+            const megaMenu = new HSMegaMenu('.js-mega-menu', {
+                desktop: {
+                    position: 'left'
+                }
+                ,eventType: 'click'
+            })
+        })()
+    </script>
+{else/}
+    <script>
+        (function() {
+            const megaMenu = new HSMegaMenu('.js-mega-menu', {
+                desktop: {
+                    position: 'left'
+                }
+            })
+        })()
+    </script>
+{/if}
+{/notempty}

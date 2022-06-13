@@ -1,0 +1,14 @@
+
+{notempty name="data['list']"}
+<div class="bg-dark">
+    <div class="bg-white text-center">
+        {notempty name="data['list'][0]"}
+        <h2 class="my-3"> {$data['list'][0]}</h2>
+        {/notempty}
+        {notempty name="data['list'][1]"}
+        <p class="text-gray-500"> {$data['list'][1]}</p>
+        {/notempty}
+    </div>
+
+</div>
+{/notempty}

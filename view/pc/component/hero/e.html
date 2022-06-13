@@ -1,0 +1,45 @@
+{notempty name="data['list']"}
+<!-- Swiper Slider -->
+    <div class="js-swiper-gallery-2 swiper">
+        <div class="swiper-wrapper">
+
+            {foreach $data['list'] as $k=>$v }
+            <div class="swiper-slide bg-img-center content-space-3 content-space-md-5 "
+                 style="background-image: url({$v['url']});">
+                <div class="container">
+                    <div class="w-lg-30 text-center mx-lg-auto">
+                        {notempty name="v['jump_class']"}
+                        <a href="{$web_url}{$v['jump_class']}/{$v['jump_id']}">
+                            {/notempty}
+                        <div class="mb-5">
+                            <h4 class="display-4 text-white mb-3">{$v['one']}</h4>
+                            <p class="text-white">{$v['two']}</p>
+                        </div>
+                            {notempty name="v['jump_type']"}
+                        </a>
+                        {/notempty}
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+
+        <div class="js-swiper-gallery-2-pagination swiper-pagination swiper-pagination-light
+         position-absolute bottom-0 start-0 end-0 mb-5"></div>
+    </div>
+
+<script>
+    (function() {
+        // INITIALIZATION OF SWIPER
+        // =======================================================
+        var swiper = new Swiper('.js-swiper-gallery-2',{
+            slidesPerView: 1,
+            pagination: {
+                el: '.js-swiper-gallery-2-pagination',
+                dynamicBullets: true,
+                clickable: true,
+            },
+        });
+    })()
+</script>
+{/notempty}

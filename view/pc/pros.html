@@ -1,0 +1,32 @@
+{extend name="pc/base" /}
+
+{notempty name="category"}
+{block name="seo"}
+
+{notempty name="category['seotitle']"}
+<title>{$category['seotitle']}</title>
+{else/}
+<title>{$category['name']} - {$site['site_name']}</title>
+{/notempty}
+
+<meta name="keywords" content="{$category['keyword']}">
+<meta name="description" content="{$category['desc']}">
+{/block}
+{/notempty}
+
+
+{block name="main"}
+
+
+{foreach $tmp as $v}
+{php}
+if(isset($v)){
+echo \think\facade\View::fetch($v['path'],['data'=>$v]);
+}
+{/php}
+{/foreach}
+{/block}
+
+
+
+

@@ -1,0 +1,51 @@
+
+{notempty name="data['list']"}
+<div class="cpm-slogan-a my-5">
+    <div class="container">
+        <div class="w-lg-75 mx-lg-auto">
+            <div class="card card-sm overflow-hidden">
+                <!-- Card -->
+                <div class="card-body">
+                    <div
+                            class="row justify-content-md-start align-items-md-center text-center text-md-start"
+                    >
+                        <div class="col-md offset-md-3 mb-3 mb-md-0">
+                            <h4 class="card-title">
+                                {notempty name="data['list']"}
+                                {$data['list'][0]}
+                                {/notempty}
+                            </h4>
+                        </div>
+                        {notempty name="data['list'][1]"}
+                        <div class="col-md-auto">
+                            {notempty name="data['jumpid']"}
+                                <a class="btn btn-primary btn-transition"
+                                href="{$web_url}category/{$data['jumpid']}">
+                            {else/}
+                                <a class="btn btn-primary btn-transition">
+                            {/notempty}
+                                {$data['list'][1]}
+                            </a>
+                        </div>
+                        {/notempty}
+                    </div>
+
+                    <!-- SVG Shape -->
+                    <figure
+                            class="w-25 d-none d-md-block position-absolute top-0 start-0 mt-n2"
+                    >
+                        <img
+                                class="card-img"
+                                src="/assets/svg/illustrations/apps.svg"
+                                alt="Image Description"
+                        />
+                    </figure>
+                    <!-- End SVG Shape -->
+                </div>
+                <!-- End Card -->
+            </div>
+        </div>
+    </div>
+    <!-- End CTA -->
+</div>
+{/notempty}

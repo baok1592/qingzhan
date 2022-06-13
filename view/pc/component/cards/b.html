@@ -1,0 +1,32 @@
+{notempty name="data['list']"}
+<div class="container content-space-2 content-space-lg-3">
+    <div class="tab-content" id="houseHeroTabContent">
+        <div class="tab-pane fade show active" id="forSale" role="tabpanel" aria-labelledby="forSale-tab">
+            <div class="row gx-3">
+                {foreach $data['list'] as $k=>$v }
+                <div class="col-sm-6 col-lg-4 mb-3">
+                    <a class="card card-stretched-vertical card-transition shadow-none
+                    bg-img-start gradient-y-overlay-lg-dark"
+                     href="{$web_url}detail?cid={$v.category_id}&id={$v.id}"
+                       style="background-image: url({$v.url}); min-height: 17rem;"
+                    >
+                        <div class="card-body">
+                            <div class="mb-1">
+<!--                                <span class="badge bg-light text-dark">tag</span>-->
+                            </div>
+
+                            <div class="card-footer">
+                                <h3 class="text-white mb-0">{$v.title}</h3>
+                                <span class="d-block text-white">{$v.desc}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {/foreach}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{/notempty}

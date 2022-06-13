@@ -1,0 +1,45 @@
+{notempty name="data['list'][0]"}
+<div class="gradient-x-overlay-lg-dark-video">
+  <div class="position-relative zi-2">
+    <div class="d-md-flex">
+      <div
+        class="container d-md-flex align-items-md-center text-center content-space-3 content-space-t-md-4"
+      >
+        <div class="js-swiper-gallery-2 swiper">
+          <div class="swiper-wrapper">
+            {foreach $data['list'] as $k=>$v }
+        <div class="swiper-slide w-100">
+          <div class="mb-7 px-10 mx-10">
+            {notempty name="v['jump_class']"}
+            <a href="{$web_url}{$v['jump_class']}/{$v['jump_id']}">
+              {/notempty}
+            <h1 class="display-4 text-white mb-3">{$v['one']}</h1>
+            <p class="lead text-white">{$v['two']}</p>
+            {notempty name="v['jump_type']"}
+              </a>
+            {/notempty}
+          </div>
+        </div>
+            {/foreach}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var swiper = new Swiper('.js-swiper-gallery-2',{
+      autoplay: true,
+      loop: true,
+      slidesPerView: 1,
+      pagination: {
+        el: '.js-swiper-gallery-2-pagination',
+        dynamicBullets: true,
+        clickable: true,
+      },
+    });
+  })()
+</script>
+{/notempty}

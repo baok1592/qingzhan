@@ -1,0 +1,36 @@
+<footer class="container content-space-1">
+    <div class="row align-items-md-center text-center text-sm-start  border-top">
+        <div class="col-md mb-3 mt-4">
+            <!-- Logo -->
+            <a aria-label="Front">
+                <img class="brand" src="/{$company['logo']}" alt="Logo" />
+            </a>
+            <!-- End Logo -->
+        </div>
+
+        <div class="col-sm mb-3 mb-sm-0">
+            <!-- List -->
+            <ul class="list-inline list-separator mb-0">
+                <li class="list-inline-item">
+                    {notempty name="company.home_cpy"}
+                    {$company.home_cpy} &emsp;
+                    {/notempty}
+                </li>
+                <li class="list-inline-item">
+                    {notempty name="company.tel"}
+                    {$company.tel}&emsp;
+                    {/notempty}
+                </li>
+                <li class="list-inline-item">
+                    {notempty name="company.beian"}
+                    <a class="link text-black-50" href="#">{$company.beian}</a></p>
+                    {/notempty}
+                </li>
+            </ul>
+            <!-- End List -->
+        </div>
+    </div>
+    <a href="https://qz.ruhuashop.com/" target="_blank">
+        <div class="text-center fs-6 text-black-50">本网站由 轻松自动建站系统 搭建</div>
+    </a>
+</footer>

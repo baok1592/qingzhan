@@ -1,0 +1,21 @@
+{
+  "name": "ruhua/ruhua_framework",
+  "description": "ruhua-framework",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "baok1592",
+      "email": "wyc0859@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "ruhua\\": "src/"
+    }
+  }
+}

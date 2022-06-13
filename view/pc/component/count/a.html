@@ -1,0 +1,62 @@
+{notempty name="data['list']"}
+<div class="bg-light rounded-2 mx-3 mx-lg-10">
+    <div class="container content-space-2">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-md-4 mb-7 mb-md-0">
+                <!-- Stats -->
+                <div class="text-center">
+                    <h2 class="display-4">
+                        {notempty name="data['list']"}
+                            {$data['list'][0]}
+                        {/notempty}
+                    </h2>
+                    <p class="mb-0">
+                        {notempty name="data['list']"}
+                            {$data['list'][3]}
+                        {/notempty}
+                    </p>
+                </div>
+                <!-- End Stats -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-6 col-md-4 mb-7 mb-md-0">
+                <!-- Stats -->
+                <div class="text-center">
+                    <h2 class="display-4">
+                        {notempty name="data['list']"}
+                        {$data['list'][1]}
+                        {/notempty}
+                    </h2>
+                    <p class="mb-0">
+                        {notempty name="data['list']"}
+                        {$data['list'][4]}
+                        {/notempty}
+                    </p>
+                </div>
+                <!-- End Stats -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-6 col-md-4">
+                <!-- Stats -->
+                <div class="text-center">
+                    <h2 class="display-4">
+                        {notempty name="data['list']"}
+                        {$data['list'][2]}
+                        {/notempty}
+                    </h2>
+                    <p class="mb-0">
+                        {notempty name="data['list']"}
+                        {$data['list'][5]}
+                        {/notempty}
+                    </p>
+                </div>
+                <!-- End Stats -->
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+    </div>
+</div>
+{/notempty}

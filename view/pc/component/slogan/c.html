@@ -1,0 +1,32 @@
+{notempty name="data['list']"}
+<div class="container content-space-1">
+    <div
+            class="text-center bg-img-start py-6"
+            style="background:url('/assets/svg/components/shape-6.svg') right bottom no-repeat" }
+    >
+
+        <h2 class="mb-5 ">
+            {notempty name="data['list']"}
+            {$data['list'][0]}
+            {/notempty}
+        </h2>
+        <div>
+            &emsp;&emsp;
+        </div>
+
+        {notempty name="data['jumpid']"}
+        <a href="{$web_url}category/{$data['jumpid']}">
+            {else/}
+            <a>
+        {/notempty}
+        {notempty name="data['list'][1]"}
+                <div class="btn btn-primary btn-transition">
+            {$data['list'][1]}
+                </div>
+        {else/}
+          <div>&emsp;&emsp;</div>
+        {/notempty}
+        </a>
+    </div>
+</div>
+{/notempty}

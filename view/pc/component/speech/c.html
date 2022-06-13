@@ -1,0 +1,49 @@
+{notempty name="data['list']"}
+<div class="overflow-hidden">
+    <div class="container content-space-2 content-space-lg-3">
+        <div class="row justify-content-lg-center align-items-md-center">
+            <div class="col-md-5 mb-10 mb-md-0">
+                <div class="position-relative">
+                    {notempty name="data['img']"}
+                    <img
+                            class="img-fluid rounded-2"
+                            src="{$data['img']?$data['img']:'/assets/img/400x500/img31.jpg'}"
+                            alt="Image Description"
+                    />
+                    {/notempty}
+                </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-md-6 col-lg-5">
+                <div class="ps-md-6">
+                    <div class="mb-4"></div>
+
+                    <!-- Blockquote -->
+                    <figure>
+                        <blockquote class="blockquote blockquote-lg">
+                            {notempty name="data['list']"}
+                            {$data['list'][0]}
+                            {/notempty}
+                        </blockquote>
+
+                        <figcaption class="blockquote-footer">
+                            {notempty name="data['list']"}
+                            {$data['list'][1]}
+                            {/notempty}
+                            <span class="blockquote-footer-source">
+                                 {notempty name="data['list']"}
+                        {$data['list'][2]}
+                        {/notempty}
+                            </span>
+                        </figcaption>
+                    </figure>
+                    <!-- End Blockquote -->
+                </div>
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+    </div>
+</div>
+{/notempty}

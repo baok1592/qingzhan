@@ -1,0 +1,57 @@
+
+<!-- ========== HEADER ========== -->
+<header id="header" class="navbar navbar-expand-lg navbar-end navbar-light bg-white">
+    <div class="container">
+        <nav class="js-mega-menu navbar-nav-wrap">
+            <!-- Logo -->
+            <a class="navbar-brand" href="../index.html" aria-label="Front">
+                <img class="navbar-brand-logo" src="../assets/svg/logos/logo.svg" alt="Logo">
+            </a>
+            <!-- End Logo -->
+
+
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  {notempty name="navs"}
+                    {foreach $navs as $v}
+<!--                    {$v.url==$path?1:0}-->
+                    {notempty name="v['child'][0]"}
+                    <li class="hs-has-sub-menu nav-item">
+                        <a class="hs-mega-menu-invoker nav-link dropdown-toggle
+ {$v.active==1?'active':''}" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">{$v.name}</a>
+
+                        <div class="hs-sub-menu dropdown-menu" aria-labelledby="companyMegaMenu" style="min-width: 14rem;">
+                            {foreach $v['child'] as $c}
+                            <a class="dropdown-item" href="{$web_url}{$c.url}">{$c.name}</a>
+                            {/foreach}
+                        </div>
+                    </li>
+
+                    {else/}
+                    <li class="nav-item">
+                        <a class="hs-mega-menu-invoker nav-link {$v.url==$path?'active':''}"
+                           href="{$web_url}{$v.url}" role="button">{$v.name}</a>
+                    </li>
+                    {/notempty}
+
+
+                    {/foreach}
+                  {/notempty}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<script src="/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
+<script>
+    (function() {
+        new HSMegaMenu('.js-mega-menu', {
+            desktop: {
+                position: 'left'
+            }
+        })
+    })()
+</script>

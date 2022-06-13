@@ -1,0 +1,31 @@
+{extend name="pc/base" /}
+
+{block name="seo"}
+    {notempty name="site"}
+    <title>{$site['seo_title']}</title>
+    <meta name="keywords" content="{$site['seo_keys']}">
+    <meta name="description" content="{$site['seo_desc']}">
+    {/notempty}
+{/block}
+
+
+{block name="main"}
+    <!--include file会在循环之前解析，导致读取不到变量，所以用View::fetch-->
+    {foreach $tmp as $k=>$v}
+        {php}
+            if(isset($v)){
+                echo \think\facade\View::fetch($v['path'],['data'=>$v]);
+            }
+
+
+        {/php}
+    {/foreach}
+
+
+{/block}
+
+
+
+
+
+

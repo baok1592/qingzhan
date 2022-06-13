@@ -1,0 +1,37 @@
+{extend name="pc/base" /}
+
+{block name="main"}
+
+
+<div class="container">
+    <div class="my-10" style="min-height:60vh;">
+        <h1 class="text-center">{$ctx['title']}</h1>
+        <p class="text-center text-muted my-3">发布日期：{$ctx['create_time']}</p>
+        <div class="text-muted m-5 px-5 lh-lg">
+            {$ctx['content']|raw}
+
+            <p><br></p>
+            {if $ctx['content']=='<p><br></p>' || $ctx['content']=="" }
+            {notempty name="ctx['imgs']"}
+            {if ($category['type'] == 'cards') OR ($category['type'] == 'pros')}
+            <div class="container content-space-2 content-space-lg-3 text-center">
+                <div class="row gx-3">
+                    {foreach $ctx['imgs'] as $k=>$v }
+                    <div class="col mb-5">
+                        <img src="{$v}" />
+                    </div>
+                    {/foreach}
+                </div>
+            </div>
+            {/if}
+            {/notempty}
+            {/if}
+        </div>
+
+    </div>
+</div>
+{/block}
+
+
+
+

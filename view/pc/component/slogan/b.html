@@ -1,0 +1,25 @@
+{notempty name="data['list']"}
+<div class="container">
+  <div
+          class="bg-primary rounded-2" >
+    <div class="w-lg-50 py-8 px-6" >
+      {notempty name="data['jumpid']"}
+      <a href="{$web_url}category/{$data['jumpid']}">
+        {else/}
+        <a>
+          {/notempty}
+          <h1 class="display-4 text-white text-center">
+            {notempty name="data['list']"}
+            {$data['list'][0]}
+            {/notempty}
+          </h1>
+          <p class="lead text-white mb-0 text-center">
+            {notempty name="data['list']"}
+            {$data['list'][1]}
+            {/notempty}
+          </p>
+        </a>
+    </div>
+  </div>
+</div>
+{/notempty}

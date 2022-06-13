@@ -1,0 +1,33 @@
+{notempty name="data['list']"}
+<div class="border-top">
+    <div class="container content-space-2 content-space-lg-3">
+        <div class="row mb-7">
+            {foreach $data['list'] as $k=>$v }
+            <div class="col-sm-6 col-lg-4 my-4">
+                {if $k%3==0}
+                <div class="card bg-soft-primary shadow-none text-center">
+                {/if}
+                {if $k%3==1}
+                <div class="card bg-soft-success shadow-none text-center">
+                {/if}
+                {if $k%3==2}
+                <div class="card bg-soft-dark shadow-none text-center">
+                {/if}
+                    <div class="card-body">
+                        <a href="{$web_url}detail?cid={$v.category_id}&id={$v.id}">
+                        <img
+                                class="img-fluid"
+                                src="{$v.url}"
+                                alt="{$v.title}"
+                        />
+                        </a>
+                        <h3 class="card-title mt-4">{$v.title}</h3>
+                        <p class="card-text">{$v.desc}</p>
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+{/notempty}

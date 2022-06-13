@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>-</title>
+    <meta name="keywords" content="-">
+    <meta name="description" content="-">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/aos.css">
+    <link rel="stylesheet" href="/assets/css/theme.min.css">
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+</head>
+
+<!-- Content -->
+<div class="container content-space-1">
+    <div class="w-lg-85 mx-lg-auto">
+
+        <div class="card card-lg mb-5">
+            <div class="card-body fs-5">
+                <h1 class="card-title h2 text-center mb-4">环境检测</h1>
+                <div class="table-responsive">
+                    <table class="table table-borderless table-nowrap table-align-middle">
+                        <thead class="thead-light">
+                        <tr>
+                            <th>环境</th>
+                            <th>最低配置</th>
+                            <th>当前配置</th>
+                            <th class="table-text-end">是否符合</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>操作系统</td>
+                            <td>不限</td>
+                            <td><?php echo php_uname('s'); ?></td>
+                            <td class="table-text-end"> <img src="/assets/svg/arr012.svg"></td>
+                        </tr>
+                        <tr>
+                            <td>php版本</td>
+                            <td>≥ 7.1</td>
+                            <td><?php echo PHP_VERSION ?></td>
+                            <?php $php_version=explode('.', PHP_VERSION); ?>
+                            <td class="table-text-end">
+                                <?php if (($php_version['0']>=7) || ($php_version['0']>=5 && $php_version['1']>=5)): ?>
+                                <img src="/assets/svg/arr012.svg">
+                                <?php else: ?>
+                                <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                <?php endif ?>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>session</td>
+                            <td>支持</td>
+                            <td>{eq name="$data.session" value="1"}支持{else /}不支持{/eq}</td>
+                            <td class="table-text-end">
+                                {eq name="$data.pdo" value="1"}
+                                    <img src="/assets/svg/arr012.svg">
+                                {else /}
+                                    <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                {/eq}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PDO</td>
+                            <td>开启</td>
+                            <td>{eq name="$data.pdo" value="1"}已开启{else /}未开启{/eq}</td>
+                            <td class="table-text-end">
+                                {eq name="$data.pdo" value="1"}
+                                <img src="/assets/svg/arr012.svg">
+                                {else /}
+                                <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                {/eq}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PDO_Mysql</td>
+                            <td>开启</td>
+                            <td>{eq name="$data.pdo_mysql" value="1"}已开启{else /}未开启{/eq}</td>
+                            <td class="table-text-end">
+                                {eq name="$data.pdo" value="1"}
+                                <img src="/assets/svg/arr012.svg">
+                                {else /}
+                                <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                {/eq}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>上传限制</td>
+                            <td>≥ 2M</td>
+                            <td>{eq name="$data.upload_size" value="0"}不支持{else /}{$data.upload_size}{/eq}</td>
+                            <td class="table-text-end">
+                                {eq name="$data.pdo" value="1"}
+                                <img src="/assets/svg/arr012.svg">
+                                {else /}
+                                <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                {/eq}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>data目录</td>
+                            <td>可写</td>
+                            <td>
+                                <?php
+                                 if (is_writable(TOP_ROOT . '\data')): ?>
+                                可写
+                                <?php else: ?>
+                                不可写
+                                <?php endif ?>
+                            </td>
+                            <td class="table-text-end">
+                                <?php if (is_writable(TOP_ROOT . '\data')): ?>
+                                <img src="/assets/svg/arr012.svg">
+                                <?php else: ?>
+                                <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                <?php endif ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>/uploads目录</td>
+                            <td>可写</td>
+                            <td>
+                                <?php if (is_writable('./uploads')): ?>
+                                可写
+                                <?php else: ?>
+                                不可写
+                                <?php endif ?>
+                            </td>
+                            <td class="table-text-end">
+                                <?php if (is_writable('./uploads')): ?>
+                                <img src="/assets/svg/arr012.svg">
+                                <?php else: ?>
+                                <span class="svg-icon svg-icon-xs text-danger">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.63602" y="16.9498" width="16" height="2" rx="1" transform="rotate(-45 5.63602 16.9498)" fill="#008060"/>
+<rect opacity="0.3" x="7.05029" y="5.63605" width="16" height="2" rx="1" transform="rotate(45 7.05029 5.63605)" fill="#008060"/>
+</svg></span>
+                                <?php endif ?>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <hr class="my-5">
+
+                <div>
+<!--                    <p>&#45;&#45;</p>-->
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-white mx-5" href="{:url('/install')}">
+                上一步
+            </a>
+
+            <a class="btn btn-primary" href="{:url('install/step3')}" >
+                下一步
+            </a>
+        </div>
+
+    </div>
+</div>
+<!-- End Content -->
+
+</body>
+</html>

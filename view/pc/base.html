@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {block name="seo"}
+        <title>-</title>
+        <meta name="keywords" content="-">
+        <meta name="description" content="-">
+    {/block}
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/aos.css">
+    <link rel="stylesheet" href="/assets/css/theme.min.css">
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+{notempty name="tmp_nav"}
+    {block name="nav"}
+        {include file="$tmp_nav" /}
+    {/block}
+{/notempty}
+
+{block name="main"}{/block}
+
+{notempty name="tmp_footer"}
+    {block name="footer"}
+        {include file="$tmp_footer" /}
+    {/block}
+{/notempty}
+
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/js/hs-header.min.js"></script>
+<script src="/assets/js/hs-show-animation.min.js"></script>
+<script src="/assets/js/hs-go-to.min.js"></script>
+<script src="/assets/js/aos.js"></script>
+<script src="/assets/js/theme.min.js"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+    (function() {
+        // INITIALIZATION OF HEADER
+        // =======================================================
+        new HSHeader('#header').init()
+
+
+        // INITIALIZATION OF SHOW ANIMATIONS
+        // =======================================================
+        new HSShowAnimation('.js-animation-link')
+
+
+        // INITIALIZATION OF BOOTSTRAP VALIDATION
+        // =======================================================
+        HSBsValidation.init('.js-validate', {
+            onSubmit: data => {
+                data.event.preventDefault()
+                alert('Submited')
+            }
+        })
+
+
+        // INITIALIZATION OF BOOTSTRAP DROPDOWN
+        // =======================================================
+        HSBsDropdown.init()
+
+
+        // INITIALIZATION OF GO TO
+        // =======================================================
+        new HSGoTo('.js-go-to')
+
+
+        // INITIALIZATION OF AOS
+        // =======================================================
+        AOS.init({
+            duration: 650,
+            once: true
+        });
+    })()
+</script>
+</body>
+</html>

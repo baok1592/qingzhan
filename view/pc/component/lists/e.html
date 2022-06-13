@@ -1,0 +1,47 @@
+{notempty name="data['list']"}
+<div class="container my-2">
+    {notempty name="data['list']"}
+    <div class="container content-space-1">
+        {foreach $data['list'] as $k=>$v }
+        <div class="d-grid gap-5 my-5">
+            <a class="d-block" href="{$web_url}detail?cid={$v.category_id}&id={$v.id}">
+                <div class="row">
+                    <div class="col-sm-5 col-lg-3 mb-3 mb-sm-0">
+                        <img class="card-img" src="{$v.url}" alt="Image Description">
+                    </div>
+
+                    <div class="col-sm-7 col-lg-9 mt-2">
+                        <div class="row">
+                            <div class="col-lg-8 mb-2 mb-lg-0">
+                                <h5 class="text-inherit">{$v.title}</h5>
+
+                                <div class="d-flex align-items-center flex-wrap">
+
+                                    <div class=" text-black-50">
+                                        {$v.desc}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class=" text-end">
+                                        <p class="text-muted small mb-0">2022-6-9</p>
+                                    </div>
+                                    <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+                            </div>
+                            <!-- End Col -->
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    {/foreach}
+    </div>
+    {/notempty}
+</div>
+{/notempty}

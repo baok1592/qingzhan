@@ -1,0 +1,34 @@
+{notempty name="data['list']"}
+<div class="bg-dark">
+    <div class="bg-dark-box container content-space-2">
+        <div class="row justify-content-lg-between align-items-lg-center">
+            <div class="col-md mb-5 mb-md-0">
+                <h2 class="text-white mb-0">
+                    {notempty name="data['list']"}
+                    {$data['list'][0]}
+                    {/notempty}
+                </h2>
+            </div>
+
+            <div class="col-md-auto">
+
+                {notempty name="data['list'][1]"}
+                <div class="d-grid d-sm-flex gap-3">
+                    {notempty name="data['jumpid']"}
+                        <a class="btn btn-light btn-transition"
+                        href="{$web_url}category/{$data['jumpid']}">
+                    {else/}
+                        <a class="btn btn-light btn-transition">
+                    {/notempty}
+                        {$data['list'][1]}
+                        </a>
+                </div>
+
+                {/notempty}
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{/notempty}

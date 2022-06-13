@@ -1,0 +1,19 @@
+{notempty name="data['list']"}
+<div class="container my-2">
+    {notempty name="data['list']"}
+    <div class="row gx-3 mb-5 mb-md-9">
+        {foreach $data['list'] as $k=>$v }
+        <div class="col-sm-6 col-lg-3 my-3 mb-lg-0">
+            <a class="card card-transition h-100" href="{$web_url}detail?cid={$v.category_id}&id={$v.id}">
+                <img class="card-img-top" style="height:260px;" src="{$v.url}" alt="{$v.title}">
+                <div class="card-body">
+<!--                    <span class="card-subtitle">{$v.desc}</span>-->
+                    <h5 class="card-text lh-base">{$v.title}</h5>
+                </div>
+            </a>
+        </div>
+        {/foreach}
+    </div>
+    {/notempty}
+</div>
+{/notempty}

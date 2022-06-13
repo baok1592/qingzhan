@@ -1,0 +1,21 @@
+{notempty name="data['list']"}
+<div class="container content-space-1 content-space-lg-2">
+    <div class="w-lg-75 mx-lg-auto">
+        <h2 class="mb-5">
+            {$data['list']['title']}
+        </h2>
+        <div class="row">
+            {notempty name="data['list']['json']"}
+            {foreach $data['list']['json'] as $k=>$v }
+            <div class="col-md-6 mb-3 mb-md-5">
+                <div class="pe-md-4">
+                    <h4>{$v['ask']}</h4>
+                    <p>{$v['answer']}</p>
+                </div>
+            </div>
+            {/foreach}
+            {/notempty}
+        </div>
+    </div>
+</div>
+{/notempty}
