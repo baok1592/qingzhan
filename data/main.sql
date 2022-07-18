@@ -44,7 +44,7 @@ CREATE TABLE `news_admins`  (
 DROP TABLE IF EXISTS `news_article`;
 CREATE TABLE `news_article`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标题',
   `short_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '短标题',
   `desc` varchar(140) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '摘要',
@@ -205,7 +205,7 @@ INSERT INTO `news_auto_revert` VALUES (1, '发1回复2', '2', 'text', '2');
 DROP TABLE IF EXISTS `news_banner`;
 CREATE TABLE `news_banner`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'Banner名称，通常作为标识',
   `type` tinyint(6) NULL DEFAULT NULL COMMENT 'pc0,手机1',
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'Banner描述',
@@ -228,12 +228,12 @@ INSERT INTO `news_banner` VALUES (4, 0, '封面顶部', 0, NULL, NULL, NULL);
 DROP TABLE IF EXISTS `news_banner_item`;
 CREATE TABLE `news_banner_item`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `banner_id` int(11) NOT NULL COMMENT '外键，关联banner表',
   `img_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '外键，关联image表',
-  `sort` int(11) NOT NULL,
-  `jump_id` int(11) NOT NULL,
+  `sort` int(11) NOT NULL DEFAULT 0,
+  `jump_id` int(11) NOT NULL DEFAULT 0,
   `jump_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '1' COMMENT '跳转类型',
   `one` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `two` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -258,7 +258,7 @@ INSERT INTO `news_banner_item` VALUES (31, 0, '手机横幅', 3, '52', 0, 19, 'c
 DROP TABLE IF EXISTS `news_cards`;
 CREATE TABLE `news_cards`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标题',
   `desc` varchar(140) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '摘要',
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '正文',
@@ -300,7 +300,7 @@ INSERT INTO `news_cards` VALUES (30, 0, '企业风格', '企业风格', '<p>企�
 DROP TABLE IF EXISTS `news_category`;
 CREATE TABLE `news_category`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '栏目标题',
   `short_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '短标题',
   `type` char(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '类型：lists,cards,pros,cover...',
@@ -377,9 +377,9 @@ INSERT INTO `news_diy` VALUES (2, 'mb_home_temp_id', 14);
 DROP TABLE IF EXISTS `news_image`;
 CREATE TABLE `news_image`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片路径',
-  `cid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL DEFAULT 0,
   `state` int(11) NULL DEFAULT 1,
   `create_time` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -416,7 +416,7 @@ INSERT INTO `news_image` VALUES (55, 0, '1/62a3220e4072e.jpg', 1, 1, 1654858254)
 DROP TABLE IF EXISTS `news_link`;
 CREATE TABLE `news_link`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `img_id` int(11) NULL DEFAULT 0 COMMENT '图标',
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '链接名称',
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '链接地址',
@@ -509,7 +509,7 @@ INSERT INTO `news_pc_diy` VALUES (15, NULL, '通用封面模板', 'cover', '[{\"
 DROP TABLE IF EXISTS `news_pros`;
 CREATE TABLE `news_pros`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标题',
   `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '价格',
   `before_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '原价',
@@ -560,7 +560,7 @@ CREATE TABLE `news_resource`  (
 DROP TABLE IF EXISTS `news_sys_config`;
 CREATE TABLE `news_sys_config`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `key` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '配置项',
   `value` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '配置值json',
   `desc` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '描述',
@@ -614,7 +614,7 @@ INSERT INTO `news_sys_config` VALUES (95, 0, 'seo_keys', 'seo_keys', 'SEO关键�
 DROP TABLE IF EXISTS `news_user`;
 CREATE TABLE `news_user`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uniacid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL DEFAULT 0,
   `openid` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `openid_gzh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `session_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
