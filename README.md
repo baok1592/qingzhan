@@ -19,11 +19,20 @@
 <br/>
 
 ## 体验
-官网：https://qz.ruhuashop.com/
+官网：https://qz.telidy.cn/
 
-PC演示：https://qz1.ruhuashop.com/
+PC演示：
 
-后台演示： https://qz1.ruhuashop.com/qzcms/
+ https://qz2.telidy.cn/ 
+
+ https://food.telidy.cn/ 
+
+ https://mall.telidy.cn/  
+
+后台演示： https://qz1.telidy.cn/qzcms/#/login
+
+####  H5和小程序演示
+请到官网查看：https://qz.telidy.cn/
 
 <br/>
 
